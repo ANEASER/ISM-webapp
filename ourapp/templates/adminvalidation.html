@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<body class="text-center">   
+    <div class="container">
+        
+        <form method="POST" class="form-register" style="color:azure;" enctype="multipart/form-data"><!--POST request kind a request that affwct database   enttype is necesssery-->
+
+            {{ form.hidden_tag() }}  <!--prevent common hacking method CROSS SITE REQUEST FORGE(CSRF)-->
+            
+  
+            <h3 style="margin-top:1%">Please Upload your Image</h3>
+            <br>
+
+            {{ form.admin.label() }}
+            {{ form.admin(class="form-control", placeholder="Admin name")}} <!--bootstrap class-->
+            
+            {{ form.password.label() }}
+            {{ form.password(class="form-control", placeholder="Admin password")}}
+            <pre></pre>
+            {{ form.submit(class="btn btn-lg btn-block btn-primary")}}
+        </form> 
+    </div> 
+</body> 
+{% endblock %}

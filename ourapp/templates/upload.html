@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<body class="text-center">   
+    <div class="container">
+        
+        <form  method="POST" class="form-register" style="color:rgb(0, 132, 255);" enctype="multipart/form-data"><!--POST request kind a request that affwct database   enttype is necesssery-->
+
+            {{ form.hidden_tag() }}  <!--prevent common hacking method CROSS SITE REQUEST FORGE(CSRF)-->
+        
+            <h3 style="padding-top: 1em; margin-top: 1em;">Please Upload your Image</h3>
+            <br>
+            {{ form.username.label() }}
+            {{ form.username(class="form-control", placeholder="User name")}} <!--bootstrap class-->
+            
+            {{ form.email_address.label() }}
+            {{ form.email_address(class="form-control", placeholder="Email Address")}} <!--bootstrap class-->
+            <pre></pre>
+            <label for="img">Select image :</label>
+            <input type="file" id="img" name="pic" accept="image/*">
+            <pre></pre>
+            {{ form.submit(class="btn btn-lg btn-block btn-primary")}}
+            <br>
+        </form> 
+    </div> 
+    <style>
+        .container {
+            background: #ffffff;
+            box-shadow:  20px 20px 40px #929292,-20px -20px 40px #ffffff;
+            border-radius: 10px;
+        }
+    </style>
+</body> 
+
+
+{% endblock %}
